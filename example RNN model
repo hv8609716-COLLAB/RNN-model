@@ -1,0 +1,85 @@
+import numpy as np
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Embedding, Dense, SimpleRNN
+from tensorflow.keras.preprocessing.text import Tokenizer
+
+# Training sentences
+sentences = [
+    "I love Python",
+    "I love Codg",
+    "I love You"
+]
+
+# Tokenization
+tokenizer = Tokenizer()
+tokenizer.fit_on_texts(sentences)
+
+# Input and Output
+x = tokenizer.texts_to_sequences([
+    "I love",
+    "I love",
+    "I love"
+])
+
+y = tokenizer.texts_to_sequences([
+    "Python",
+    "Codg",
+    "You"
+])
+
+# Convert to numpy
+x = np.array(x)
+y = np.array(y)
+
+print("X =", x)
+print("Y =", y)
+
+# Model
+model = Sequential()
+
+model.add(
+    Embedding(
+        input_dim=10,
+        output_dim=5,
+        input_length=2
+    )
+)
+
+model.add(SimpleRNN(10))
+
+model.add(
+    Dense(
+        10,
+        activation="softmax"
+    )
+)
+
+# Compile
+model.compile(
+    loss="sparse_categorical_crossentropy",
+    optimizer="adam"
+)
+
+# Train
+model.fit(
+    x,
+    y,
+    epochs=200,
+    verbose=0
+)
+
+# Prediction
+pred = model.predict(x)
+
+print("Predicted Index:")
+print(np.argmax(pred, axis=1))
+
+# Decode words
+reverse_word = {
+    v: k for k, v in tokenizer.word_index.items()
+}
+
+print("\nPredicted Words:")
+
+for i in np.argmax(pred, axis=1):
+    print(reverse_word.get(i, "Unknown"))
