@@ -1,25 +1,31 @@
-# RNN-model
 
+# 🧠 Deep Learning Mini Projects – RNN & LSTM
 
+This repository contains two beginner-friendly Deep Learning projects built using **TensorFlow** and **Keras**.
 
-# 🧠 RNN Word Prediction using TensorFlow
+Projects Included:
 
-A simple Deep Learning project built using **TensorFlow**, **Keras**, and **SimpleRNN** to predict the next word from a small text dataset.
+1. 🔤 Word Prediction using RNN
+2. 📈 Time Series Prediction using LSTM
 
 ---
 
-## 🚀 Project Overview
+# 🔤 Project 1 – RNN Word Prediction
 
-This project demonstrates how a **Recurrent Neural Network (RNN)** can learn patterns from text sequences and predict output words.
+## Overview
+
+This project uses a **Simple Recurrent Neural Network (RNN)** to predict the next word from text sequences.
 
 Example:
 
 Input:
+
 ```
 I love
 ```
 
 Output:
+
 ```
 Python
 Codg
@@ -28,19 +34,7 @@ You
 
 ---
 
-## 🛠 Technologies Used
-
-- Python
-- TensorFlow
-- Keras
-- NumPy
-- Google Colab / Jupyter Notebook
-
----
-
-## 📂 Dataset
-
-Training Sentences:
+## Dataset
 
 ```text
 I love Python
@@ -50,27 +44,96 @@ I love You
 
 ---
 
-## 🧠 Model Architecture
+## Model Architecture
 
 ```text
-Embedding Layer
+Embedding
 ↓
-SimpleRNN Layer
+SimpleRNN
 ↓
-Dense Layer (Softmax)
+Dense (Softmax)
 ```
 
-### Model Parameters
+### Concepts Covered
 
-- Embedding Output Dimension → 5
-- RNN Units → 10
-- Epochs → 200
-- Optimizer → Adam
-- Loss → Sparse Categorical Crossentropy
+- Tokenization
+- Embedding Layer
+- Text Sequence Encoding
+- RNN
+- Word Prediction
 
 ---
 
-## ▶️ Installation
+# 📈 Project 2 – LSTM Stock/Sequence Prediction
+
+## Overview
+
+This project uses **Long Short-Term Memory (LSTM)** to predict the next value from previous numerical values.
+
+Example dataset:
+
+```text
+100
+102
+105
+107
+110
+115
+120
+```
+
+Training Window:
+
+```text
+[100 102 105] → 107
+[102 105 107] → 110
+[105 107 110] → 115
+[107 110 115] → 120
+```
+
+Prediction Input:
+
+```text
+[115 120 125]
+```
+
+Predicted Output:
+
+```text
+≈ Next Value
+```
+
+---
+
+## Model Architecture
+
+```text
+LSTM (50 Units)
+↓
+Dense (1)
+```
+
+### Concepts Covered
+
+- Time Series Forecasting
+- Sequence Learning
+- Data Reshaping
+- LSTM Networks
+
+---
+
+# 🛠 Tech Stack
+
+- Python
+- TensorFlow
+- Keras
+- NumPy
+- Google Colab
+- Jupyter Notebook
+
+---
+
+# 📦 Installation
 
 Install dependencies:
 
@@ -80,48 +143,54 @@ pip install tensorflow numpy
 
 ---
 
-## ▶️ Run Project
+# ▶️ Run
+
+Run notebook:
 
 ```bash
-python rnn.py
+jupyter notebook
 ```
 
 OR
 
-Run directly in:
-
-- Google Colab
-- Jupyter Notebook
-
----
-
-## 📌 Output Example
-
-```text
-Predicted Words:
-Python
-Codg
-You
+```bash
+python project.py
 ```
 
 ---
 
-## 📈 Learning Concepts
+# 📂 Repository Structure
 
-This project covers:
-
-- Tokenization
-- Text to Sequence Conversion
-- Embedding Layer
-- Recurrent Neural Networks (RNN)
-- Word Prediction
-- Model Training
+```text
+Deep-Learning-Projects/
+│
+├── RNN.ipynb
+├── LSTM.ipynb
+├── README.md
+└── screenshots/
+```
 
 ---
-NOTE: This is example 
-## 👨‍💻 Author
+
+---
+
+# 🎯 Learning Outcomes
+
+After completing this project you will understand:
+
+✅ RNN Architecture  
+✅ LSTM Architecture  
+✅ Sequence Prediction  
+✅ Deep Learning Basics  
+✅ TensorFlow Workflow  
+
+---
+
+# 👨‍💻 Author
 
 Harsh Vardhan
 
 
 ---
+
+⭐ Star this repository if you found it useful.
